@@ -67,7 +67,7 @@
   #define WITH_TITAN 1
   #define X_BED_SIZE 330
   #define Y_BED_SIZE 330
-  #define Z_MAX_POS 360
+  #define Z_MAX_POS  360
   #define CUSTOM_MACHINE_NAME "Tronxy X5SA V6 330 Titan TMC"
   #define COREXY
 
@@ -1691,7 +1691,7 @@
   // Set one or more commands to execute on filament runout.
   // (After 'M412 H' Marlin will ask the host to handle the process.)
   #ifndef TFT_LVGL_UI
-  #define FILAMENT_RUNOUT_SCRIPT "M125"
+  #define FILAMENT_RUNOUT_SCRIPT "M118 A1 action:pause"
   #else
   #define FILAMENT_RUNOUT_SCRIPT "M25"
   #endif
@@ -2047,9 +2047,14 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 210
+#define PREHEAT_1_TEMP_HOTEND 180
 #define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_2_LABEL       "PETG"
+#define PREHEAT_2_TEMP_HOTEND 220
+#define PREHEAT_2_TEMP_BED     75
+#define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 // #define PREHEAT_2_LABEL       "ABS"
 // #define PREHEAT_2_TEMP_HOTEND 240
@@ -2071,7 +2076,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MIN_POS + 10), 100 }
+  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MIN_POS + 10), 200 }
   //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
   //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   #define NOZZLE_PARK_Z_RAISE_MIN  60   // (mm) Always raise Z by at least this distance
@@ -2127,15 +2132,15 @@
 
   // Specify positions for each tool as { { X, Y, Z }, { X, Y, Z } }
   // Dual hotend system may use { {  -20, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) },  {  420, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) }}
-  #define NOZZLE_CLEAN_START_POINT { { (X_BED_SIZE + 5), (Y_MIN_POS + 5), (Z_MIN_POS + 7) } }
-  #define NOZZLE_CLEAN_END_POINT   { { (X_BED_SIZE + 17), (Y_MIN_POS + 60), (Z_MIN_POS + 7) } }
+  #define NOZZLE_CLEAN_START_POINT { { (X_BED_SIZE + 5), (Y_MIN_POS + 5), (Z_MIN_POS + 6) } }
+  #define NOZZLE_CLEAN_END_POINT   { { (X_BED_SIZE + 17), (Y_MIN_POS + 60), (Z_MIN_POS + 6) } }
 
   // Circular pattern radius
   #define NOZZLE_CLEAN_CIRCLE_RADIUS 6.5
   // Circular pattern circle fragments number
   #define NOZZLE_CLEAN_CIRCLE_FN 10
   // Middle point of circle
-  #define NOZZLE_CLEAN_CIRCLE_MIDDLE { { (X_BED_SIZE + 8.5), (Y_MIN_POS + 25), (Z_MIN_POS + 7) } }
+  #define NOZZLE_CLEAN_CIRCLE_MIDDLE { { (X_BED_SIZE + 8.5), (Y_MIN_POS + 25), (Z_MIN_POS + 6) } }
 
   // Move the nozzle to the initial position after cleaning
   #define NOZZLE_CLEAN_GOBACK
