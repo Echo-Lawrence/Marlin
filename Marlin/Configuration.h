@@ -1119,7 +1119,7 @@
 #if WITH_TMC && WITH_BMG
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 830 }
 #elif WITH_TMC && WITH_TITAN
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 822.2 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 814.1 }
 #elif WITH_TMC && !WITH_TITAN && !WITH_BMG
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 186 }
 #elif WITH_TITAN && !WITH_TMC
@@ -1404,12 +1404,12 @@
 #ifdef XY2_MODELS
 #define NOZZLE_TO_PROBE_OFFSET { -50, -10, 0 }
 #else
-#define NOZZLE_TO_PROBE_OFFSET { -35, -0, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -40, -3.7, 0 }
 #endif
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 50
+#define PROBING_MARGIN 20
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_SPEED (133*60)
@@ -2127,15 +2127,15 @@
 
   // Specify positions for each tool as { { X, Y, Z }, { X, Y, Z } }
   // Dual hotend system may use { {  -20, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) },  {  420, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) }}
-  #define NOZZLE_CLEAN_START_POINT { { (X_BED_SIZE + 5), (Y_MIN_POS), (Z_MIN_POS + 4) } }
-  #define NOZZLE_CLEAN_END_POINT   { { (X_BED_SIZE + 17), (Y_MIN_POS + 60), (Z_MIN_POS + 4) } }
+  #define NOZZLE_CLEAN_START_POINT { { (X_BED_SIZE + 5), (Y_MIN_POS + 5), (Z_MIN_POS + 7) } }
+  #define NOZZLE_CLEAN_END_POINT   { { (X_BED_SIZE + 17), (Y_MIN_POS + 60), (Z_MIN_POS + 7) } }
 
   // Circular pattern radius
   #define NOZZLE_CLEAN_CIRCLE_RADIUS 6.5
   // Circular pattern circle fragments number
   #define NOZZLE_CLEAN_CIRCLE_FN 10
   // Middle point of circle
-  #define NOZZLE_CLEAN_CIRCLE_MIDDLE { { (X_BED_SIZE + 8.5), (Y_MIN_POS + 25), (Z_MIN_POS + 4) } }
+  #define NOZZLE_CLEAN_CIRCLE_MIDDLE { { (X_BED_SIZE + 8.5), (Y_MIN_POS + 25), (Z_MIN_POS + 7) } }
 
   // Move the nozzle to the initial position after cleaning
   #define NOZZLE_CLEAN_GOBACK
